@@ -1,0 +1,428 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '5'
+  selfLink: /apis/apps/v1/namespaces/openshift-operators/deployments/kiali-operator
+  resourceVersion: '1128734479'
+  name: kiali-operator
+  uid: 6895701a-7be7-434a-b71a-e9307e9a8007
+  creationTimestamp: '2021-11-11T18:07:21Z'
+  generation: 22
+  managedFields:
+    - manager: olm
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-01-13T17:44:09Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:olm.deployment-spec-hash': {}
+            'f:olm.owner': {}
+            'f:olm.owner.kind': {}
+            'f:olm.owner.namespace': {}
+            'f:operators.coreos.com/kiali-ossm.openshift-operators': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"2bc17a2a-1dc7-4c24-a2c4-342b3d839bae"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                'f:olm.operatorNamespace': {}
+                'f:operators.openshift.io/infrastructure-features': {}
+                'f:createdAt': {}
+                'f:alm-examples': {}
+                'f:description': {}
+                'f:olm.operatorGroup': {}
+                'f:capabilities': {}
+                'f:prometheus.io/scrape': {}
+                .: {}
+                'f:containerImage': {}
+                'f:categories': {}
+                'f:certified': {}
+                'f:operatorframework.io/properties': {}
+                'f:support': {}
+                'f:olm.targetNamespaces': {}
+                'f:repository': {}
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:app.kubernetes.io/name': {}
+                'f:app.kubernetes.io/part-of': {}
+                'f:app.kubernetes.io/version': {}
+                'f:name': {}
+                'f:version': {}
+              'f:name': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"runner"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"operator"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/tmp/ansible-operator/runner"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:args': {}
+                  'f:env':
+                    'k:{"name":"RELATED_IMAGE_kiali_v1_12"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"RELATED_IMAGE_kiali_v1_24"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"RELATED_IMAGE_kiali_v1_36"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"PROFILE_TASKS_TASK_OUTPUT_LIMIT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ANSIBLE_VERBOSITY_KIALI_KIALI_IO"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ANSIBLE_DEBUG_LOGS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POD_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"HTTPS_PROXY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ANSIBLE_CONFIG"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"POD_NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"NO_PROXY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ALLOW_AD_HOC_KIALI_NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"ALLOW_AD_HOC_KIALI_IMAGE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"HTTP_PROXY"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"RELATED_IMAGE_kiali_default"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"OPERATOR_CONDITION_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"WATCH_NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                  'f:securityContext':
+                    .: {}
+                    'f:allowPrivilegeEscalation': {}
+                    'f:privileged': {}
+                    'f:runAsNonRoot': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-01-13T17:47:30Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            'k:{"type":"Progressing"}':
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+  namespace: openshift-operators
+  ownerReferences:
+    - apiVersion: operators.coreos.com/v1alpha1
+      kind: ClusterServiceVersion
+      name: kiali-operator.v1.36.7
+      uid: 2bc17a2a-1dc7-4c24-a2c4-342b3d839bae
+      controller: false
+      blockOwnerDeletion: false
+  labels:
+    olm.deployment-spec-hash: 57c6c6bfc4
+    olm.owner: kiali-operator.v1.36.7
+    olm.owner.kind: ClusterServiceVersion
+    olm.owner.namespace: openshift-operators
+    operators.coreos.com/kiali-ossm.openshift-operators: ''
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kiali-operator
+  template:
+    metadata:
+      name: kiali-operator
+      creationTimestamp: null
+      labels:
+        app: kiali-operator
+        app.kubernetes.io/name: kiali-operator
+        app.kubernetes.io/part-of: kiali-operator
+        app.kubernetes.io/version: v1.36.7
+        name: kiali-operator
+        version: v1.36.7
+      annotations:
+        certified: 'false'
+        olm.targetNamespaces: ''
+        operatorframework.io/properties: >-
+          {"properties":[{"type":"olm.gvk","value":{"group":"kiali.io","kind":"Kiali","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"monitoring.kiali.io","kind":"MonitoringDashboard","version":"v1alpha1"}},{"type":"olm.package","value":{"packageName":"kiali-ossm","version":"1.36.7"}}]}
+        repository: 'https://github.com/kiali/kiali'
+        support: Red Hat
+        operators.openshift.io/infrastructure-features: '["disconnected"]'
+        alm-examples: |-
+          [
+            {
+              "apiVersion": "kiali.io/v1alpha1",
+              "kind": "Kiali",
+              "metadata": {
+                "name": "kiali"
+              },
+              "spec": {
+                "installation_tag": "My Kiali",
+                "istio_namespace": "istio-system",
+                "deployment": {
+                  "logger": {
+                    "log_level": "debug"
+                  },
+                  "namespace": "istio-system",
+                  "view_only_mode": false
+                }
+              }
+            },
+            {
+              "apiVersion": "monitoring.kiali.io/v1alpha1",
+              "kind": "MonitoringDashboard",
+              "metadata": {
+                "name": "myappdashboard"
+              },
+              "spec": {
+                "title": "My App Dashboard",
+                "items": [
+                  {
+                    "chart": {
+                      "name": "My App Processing Duration",
+                      "unit": "seconds",
+                      "spans": 6,
+                      "metricName": "my_app_duration_seconds",
+                      "dataType": "histogram",
+                      "aggregations": [
+                        {
+                          "label": "id",
+                          "displayName": "ID"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        capabilities: Deep Insights
+        olm.operatorNamespace: openshift-operators
+        prometheus.io/scrape: 'true'
+        containerImage: >-
+          registry.redhat.io/openshift-service-mesh/kiali-rhel8-operator@sha256:5fe82607b0f607d0c4c5fd73b73f39c72b9f58aaf1fe2e54be862d047b217e05
+        createdAt: '2021-12-23T11:02:04Z'
+        categories: 'Monitoring,Logging & Tracing'
+        description: >-
+          Kiali project provides answers to the questions: What microservices
+          are part of my Istio service mesh and how are they connected?
+        olm.operatorGroup: global-operators
+    spec:
+      restartPolicy: Always
+      serviceAccountName: kiali-operator
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: operator
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: 'metadata.annotations[''olm.targetNamespaces'']'
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: ALLOW_AD_HOC_KIALI_NAMESPACE
+              value: 'false'
+            - name: ALLOW_AD_HOC_KIALI_IMAGE
+              value: 'false'
+            - name: PROFILE_TASKS_TASK_OUTPUT_LIMIT
+              value: '100'
+            - name: ANSIBLE_DEBUG_LOGS
+              value: 'True'
+            - name: ANSIBLE_VERBOSITY_KIALI_KIALI_IO
+              value: '1'
+            - name: ANSIBLE_CONFIG
+              value: /etc/ansible/ansible.cfg
+            - name: RELATED_IMAGE_kiali_default
+              value: >-
+                registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:376aab4049578fcfcccac6bdb0bfdce71111fbcfc092ab2510cc58ccb7ba265f
+            - name: RELATED_IMAGE_kiali_v1_36
+              value: >-
+                registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:376aab4049578fcfcccac6bdb0bfdce71111fbcfc092ab2510cc58ccb7ba265f
+            - name: RELATED_IMAGE_kiali_v1_24
+              value: >-
+                registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:f85ca80b5a0063faf100e7a3fc65109c35f3e74a61aa1fd21d41f72148b8c1a4
+            - name: RELATED_IMAGE_kiali_v1_12
+              value: >-
+                registry.redhat.io/openshift-service-mesh/kiali-rhel7@sha256:727e4b4174407906d185b09332e6d30e355cbb28053e97b00d10db390ba6b0f5
+            - name: HTTP_PROXY
+              value: 'http://10.40.0.28:3128'
+            - name: HTTPS_PROXY
+              value: 'http://10.40.0.28:3128'
+            - name: NO_PROXY
+              value: >-
+                .cluster.local,.gts.rus.socgen,.paas.rosbank.rus.socgen,.rosbank.rus.socgen,.svc,.trosbank.trus.tsocgen,10.0.0.0/16,10.0.0.0/8,10.244.0.0/14,10.250.0.0/16,127.0.0.1,api-int.tpaas.trosbank.trus.tsocgen,localhost
+            - name: OPERATOR_CONDITION_NAME
+              value: kiali-operator.v1.36.7
+          securityContext:
+            privileged: false
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+          ports:
+            - name: http-metrics
+              containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: runner
+              mountPath: /tmp/ansible-operator/runner
+          terminationMessagePolicy: File
+          image: >-
+            registry.redhat.io/openshift-service-mesh/kiali-rhel8-operator@sha256:5fe82607b0f607d0c4c5fd73b73f39c72b9f58aaf1fe2e54be862d047b217e05
+          args:
+            - '--zap-log-level=info'
+            - '--leader-election-id=kiali-operator'
+      serviceAccount: kiali-operator
+      volumes:
+        - name: runner
+          emptyDir: {}
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 1
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 22
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-01-13T05:55:56Z'
+      lastTransitionTime: '2022-01-13T05:55:56Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-01-13T17:47:30Z'
+      lastTransitionTime: '2022-01-12T18:48:13Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "kiali-operator-d48b95f9b" has successfully progressed.
