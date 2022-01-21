@@ -1,0 +1,1061 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    certified: 'false'
+    olm.targetNamespaces: ''
+    operatorframework.io/properties: >-
+      {"properties":[{"type":"olm.gvk","value":{"group":"kiali.io","kind":"Kiali","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"monitoring.kiali.io","kind":"MonitoringDashboard","version":"v1alpha1"}},{"type":"olm.package","value":{"packageName":"kiali-ossm","version":"1.36.7"}}]}
+    repository: 'https://github.com/kiali/kiali'
+    support: Red Hat
+    operators.openshift.io/infrastructure-features: '["disconnected"]'
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "kiali.io/v1alpha1",
+          "kind": "Kiali",
+          "metadata": {
+            "name": "kiali"
+          },
+          "spec": {
+            "installation_tag": "My Kiali",
+            "istio_namespace": "istio-system",
+            "deployment": {
+              "logger": {
+                "log_level": "debug"
+              },
+              "namespace": "istio-system",
+              "view_only_mode": false
+            }
+          }
+        },
+        {
+          "apiVersion": "monitoring.kiali.io/v1alpha1",
+          "kind": "MonitoringDashboard",
+          "metadata": {
+            "name": "myappdashboard"
+          },
+          "spec": {
+            "title": "My App Dashboard",
+            "items": [
+              {
+                "chart": {
+                  "name": "My App Processing Duration",
+                  "unit": "seconds",
+                  "spans": 6,
+                  "metricName": "my_app_duration_seconds",
+                  "dataType": "histogram",
+                  "aggregations": [
+                    {
+                      "label": "id",
+                      "displayName": "ID"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    capabilities: Deep Insights
+    olm.operatorNamespace: openshift-operators
+    containerImage: >-
+      registry.redhat.io/openshift-service-mesh/kiali-rhel8-operator@sha256:5fe82607b0f607d0c4c5fd73b73f39c72b9f58aaf1fe2e54be862d047b217e05
+    createdAt: '2021-12-23T11:02:04Z'
+    categories: 'Monitoring,Logging & Tracing'
+    description: >-
+      Kiali project provides answers to the questions: What microservices are
+      part of my Istio service mesh and how are they connected?
+    olm.operatorGroup: global-operators
+  selfLink: >-
+    /apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/clusterserviceversions/kiali-operator.v1.36.7
+  resourceVersion: '1128734496'
+  name: kiali-operator.v1.36.7
+  uid: 2bc17a2a-1dc7-4c24-a2c4-342b3d839bae
+  creationTimestamp: '2022-01-13T17:43:52Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:operators.openshift.io/infrastructure-features': {}
+            'f:createdAt': {}
+            'f:alm-examples': {}
+            'f:description': {}
+            'f:capabilities': {}
+            .: {}
+            'f:containerImage': {}
+            'f:categories': {}
+            'f:certified': {}
+            'f:operatorframework.io/properties': {}
+            'f:support': {}
+            'f:repository': {}
+          'f:labels':
+            .: {}
+            'f:operatorframework.io/arch.amd64': {}
+            'f:operatorframework.io/arch.ppc64le': {}
+            'f:operatorframework.io/arch.s390x': {}
+        'f:spec':
+          'f:version': {}
+          'f:maturity': {}
+          'f:provider':
+            .: {}
+            'f:name': {}
+          'f:links': {}
+          'f:install':
+            .: {}
+            'f:spec':
+              .: {}
+              'f:clusterPermissions': {}
+            'f:strategy': {}
+          'f:maintainers': {}
+          'f:description': {}
+          'f:installModes': {}
+          'f:icon': {}
+          'f:customresourcedefinitions':
+            .: {}
+            'f:owned': {}
+          .: {}
+          'f:apiservicedefinitions': {}
+          'f:selector':
+            .: {}
+            'f:matchLabels':
+              .: {}
+              'f:name': {}
+          'f:replaces': {}
+          'f:labels':
+            .: {}
+            'f:name': {}
+          'f:displayName': {}
+          'f:keywords': {}
+      manager: catalog
+      operation: Update
+      time: '2022-01-13T17:43:52Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:olm.operatorGroup': {}
+            'f:olm.operatorNamespace': {}
+            'f:olm.targetNamespaces': {}
+          'f:labels':
+            'f:olm.api.28f90c9ba86850a3': {}
+            'f:olm.api.f432235cd00821e7': {}
+            'f:operators.coreos.com/kiali-ossm.openshift-operators': {}
+        'f:spec':
+          'f:install':
+            'f:spec':
+              'f:deployments': {}
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:lastTransitionTime': {}
+          'f:lastUpdateTime': {}
+          'f:message': {}
+          'f:phase': {}
+          'f:reason': {}
+          'f:requirementStatus': {}
+      manager: olm
+      operation: Update
+      time: '2022-01-13T17:44:08Z'
+  namespace: openshift-operators
+  labels:
+    olm.api.28f90c9ba86850a3: provided
+    olm.api.f432235cd00821e7: provided
+    operatorframework.io/arch.amd64: supported
+    operatorframework.io/arch.ppc64le: supported
+    operatorframework.io/arch.s390x: supported
+    operators.coreos.com/kiali-ossm.openshift-operators: ''
+spec:
+  customresourcedefinitions:
+    owned:
+      - description: A configuration file for a Kiali installation.
+        displayName: Kiali
+        kind: Kiali
+        name: kialis.kiali.io
+        resources:
+          - kind: Deployment
+            name: ''
+            version: apps/v1
+          - kind: Pod
+            name: ''
+            version: v1
+          - kind: Service
+            name: ''
+            version: v1
+          - kind: ConfigMap
+            name: ''
+            version: v1
+          - kind: OAuthClient
+            name: ''
+            version: oauth.openshift.io/v1
+          - kind: Route
+            name: ''
+            version: route.openshift.io/v1
+          - kind: ConsoleLink
+            name: ''
+            version: consolelinks.console.openshift.io/v1
+        specDescriptors:
+          - description: >-
+              The namespace where Kiali and its associated resources will be
+              created. Default: istio-system
+            displayName: Kiali Namespace
+            path: deployment.namespace
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:label'
+          - description: >-
+              Determines the priority levels of log messages Kiali will output.
+              Typical values are '3' for INFO and higher priority messages, '4'
+              for DEBUG and higher priority messages (this makes the logs more
+              noisy). Default: 3
+            displayName: Verbose Mode
+            path: deployment.verbose_mode
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:label'
+          - description: >-
+              When true, Kiali will be in 'view only' mode, allowing the user to
+              view and retrieve management and monitoring data for the service
+              mesh, but not allow the user to modify the service mesh. Default:
+              false
+            displayName: View Only Mode
+            path: deployment.view_only_mode
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:booleanSwitch'
+          - description: >-
+              Defines the root context path for the Kiali console, API endpoints
+              and readiness/liveness probes. Default: /
+            displayName: Web Root
+            path: server.web_root
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:label'
+        version: v1alpha1
+      - description: A configuration file for defining an individual metric dashboard.
+        displayName: Monitoring Dashboard
+        kind: MonitoringDashboard
+        name: monitoringdashboards.monitoring.kiali.io
+        specDescriptors:
+          - description: The title of the dashboard.
+            displayName: Title
+            path: title
+            x-descriptors:
+              - 'urn:alm:descriptor:com.tectonic.ui:label'
+        version: v1alpha1
+  apiservicedefinitions: {}
+  keywords:
+    - service-mesh
+    - observability
+    - monitoring
+    - maistra
+    - istio
+  displayName: Kiali Operator
+  provider:
+    name: Red Hat
+  maturity: stable
+  installModes:
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+  version: 1.36.7
+  icon:
+    - base64data: >-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMjgwIDEyODAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyODAgMTI4MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwMTMxNDQ7fQoJLnN0MXtmaWxsOiMwMDkzREQ7fQo8L3N0eWxlPgo8Zz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04MTAuOSwxODAuOWMtMjUzLjYsMC00NTkuMSwyMDUuNS00NTkuMSw0NTkuMXMyMDUuNSw0NTkuMSw0NTkuMSw0NTkuMVMxMjcwLDg5My42LDEyNzAsNjQwCgkJUzEwNjQuNSwxODAuOSw4MTAuOSwxODAuOXogTTgxMC45LDEwMjkuMmMtMjE1LDAtMzg5LjItMTc0LjMtMzg5LjItMzg5LjJjMC0yMTUsMTc0LjMtMzg5LjIsMzg5LjItMzg5LjJTMTIwMC4xLDQyNSwxMjAwLjEsNjQwCgkJUzEwMjUuOSwxMDI5LjIsODEwLjksMTAyOS4yeiIvPgoJPHBhdGggY2xhc3M9InN0MSIgZD0iTTY1My4zLDI4NGMtMTM2LjQsNjAuNS0yMzEuNiwxOTcuMS0yMzEuNiwzNTZjMCwxNTguOCw5NS4yLDI5NS41LDIzMS42LDM1NmM5OC40LTg3LjEsMTYwLjQtMjE0LjMsMTYwLjQtMzU2CgkJQzgxMy43LDQ5OC4zLDc1MS42LDM3MS4xLDY1My4zLDI4NHoiLz4KCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zNTEuOCw2NDBjMC0xMDkuOCwzOC42LTIxMC41LDEwMi44LTI4OS41Yy0zOS42LTE4LjItODMuNi0yOC4zLTEzMC0yOC4zQzE1MC45LDMyMi4yLDEwLDQ2NC41LDEwLDY0MAoJCXMxNDAuOSwzMTcuOCwzMTQuNiwzMTcuOGM0Ni4zLDAsOTAuNC0xMC4xLDEzMC0yOC4zQzM5MC4zLDg1MC41LDM1MS44LDc0OS44LDM1MS44LDY0MHoiLz4KPC9nPgo8L3N2Zz4K
+      mediatype: image/svg+xml
+  links:
+    - name: Installation Guide
+      url: 'https://www.kiali.io/documentation/latest/installation-guide'
+    - name: Features
+      url: 'https://www.kiali.io/documentation/latest/features'
+    - name: Documentation Home
+      url: 'https://www.kiali.io/documentation'
+    - name: Blogs and Articles
+      url: 'https://medium.com/kialiproject'
+    - name: Server Source Code
+      url: 'https://github.com/kiali/kiali'
+    - name: UI Source Code
+      url: 'https://github.com/kiali/kiali-ui'
+    - name: Operator Source Code
+      url: 'https://github.com/kiali/kiali-operator'
+  install:
+    spec:
+      clusterPermissions:
+        - rules:
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+                - endpoints
+                - pods
+                - serviceaccounts
+                - services
+                - services/finalizers
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - namespaces
+              verbs:
+                - get
+                - list
+                - patch
+            - apiGroups:
+                - ''
+              resources:
+                - secrets
+              verbs:
+                - create
+                - list
+                - watch
+            - apiGroups:
+                - ''
+              resourceNames:
+                - kiali-signing-key
+              resources:
+                - secrets
+              verbs:
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apps
+              resources:
+                - deployments
+                - replicasets
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - autoscaling
+              resources:
+                - horizontalpodautoscalers
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - monitoring.coreos.com
+              resources:
+                - servicemonitors
+              verbs:
+                - create
+                - get
+            - apiGroups:
+                - apps
+              resourceNames:
+                - kiali-operator
+              resources:
+                - deployments/finalizers
+              verbs:
+                - update
+            - apiGroups:
+                - kiali.io
+              resources:
+                - '*'
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - rbac.authorization.k8s.io
+              resources:
+                - clusterrolebindings
+                - clusterroles
+                - rolebindings
+                - roles
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - apiextensions.k8s.io
+              resources:
+                - customresourcedefinitions
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - extensions
+                - networking.k8s.io
+              resources:
+                - ingresses
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - route.openshift.io
+              resources:
+                - routes
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - oauth.openshift.io
+              resources:
+                - oauthclients
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - config.openshift.io
+              resources:
+                - clusteroperators
+              verbs:
+                - list
+                - watch
+            - apiGroups:
+                - config.openshift.io
+              resourceNames:
+                - kube-apiserver
+              resources:
+                - clusteroperators
+              verbs:
+                - get
+            - apiGroups:
+                - console.openshift.io
+              resources:
+                - consolelinks
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - monitoring.kiali.io
+              resources:
+                - monitoringdashboards
+              verbs:
+                - create
+                - delete
+                - get
+                - list
+                - patch
+                - update
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - configmaps
+                - endpoints
+                - pods/log
+                - pods/proxy
+              verbs:
+                - get
+                - list
+                - watch
+            - apiGroups:
+                - ''
+              resources:
+                - namespaces
+                - pods
+                - replicationcontrollers
+                - services
+              verbs:
+                - get
+                - list
+                - watch
+                - patch
+            - apiGroups:
+                - ''
+              resources:
+                - pods/portforward
+              verbs:
+                - create
+                - post
+            - apiGroups:
+                - extensions
+                - apps
+              resources:
+                - daemonsets
+                - deployments
+                - replicasets
+                - statefulsets
+              verbs:
+                - get
+                - list
+                - watch
+                - patch
+            - apiGroups:
+                - batch
+              resources:
+                - cronjobs
+                - jobs
+              verbs:
+                - get
+                - list
+                - watch
+                - patch
+            - apiGroups:
+                - config.istio.io
+                - networking.istio.io
+                - authentication.istio.io
+                - rbac.istio.io
+                - security.istio.io
+              resources:
+                - '*'
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - delete
+                - patch
+            - apiGroups:
+                - authentication.maistra.io
+              resources:
+                - servicemeshpolicies
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - delete
+                - patch
+            - apiGroups:
+                - rbac.maistra.io
+              resources:
+                - servicemeshrbacconfigs
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - delete
+                - patch
+            - apiGroups:
+                - apps.openshift.io
+              resources:
+                - deploymentconfigs
+              verbs:
+                - get
+                - list
+                - watch
+                - patch
+            - apiGroups:
+                - project.openshift.io
+              resources:
+                - projects
+              verbs:
+                - get
+            - apiGroups:
+                - route.openshift.io
+              resources:
+                - routes
+              verbs:
+                - get
+            - apiGroups:
+                - monitoring.kiali.io
+              resources:
+                - monitoringdashboards
+              verbs:
+                - get
+                - list
+            - apiGroups:
+                - iter8.tools
+              resources:
+                - experiments
+              verbs:
+                - get
+                - list
+                - watch
+                - create
+                - delete
+                - patch
+            - apiGroups:
+                - authentication.k8s.io
+              resources:
+                - tokenreviews
+              verbs:
+                - create
+          serviceAccountName: kiali-operator
+      deployments:
+        - name: kiali-operator
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: kiali-operator
+            strategy: {}
+            template:
+              metadata:
+                annotations:
+                  prometheus.io/scrape: 'true'
+                creationTimestamp: null
+                labels:
+                  app: kiali-operator
+                  app.kubernetes.io/name: kiali-operator
+                  app.kubernetes.io/part-of: kiali-operator
+                  app.kubernetes.io/version: v1.36.7
+                  name: kiali-operator
+                  version: v1.36.7
+                name: kiali-operator
+              spec:
+                containers:
+                  - resources: {}
+                    name: operator
+                    env:
+                      - name: WATCH_NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: 'metadata.annotations[''olm.targetNamespaces'']'
+                      - name: POD_NAME
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.name
+                      - name: POD_NAMESPACE
+                        valueFrom:
+                          fieldRef:
+                            fieldPath: metadata.namespace
+                      - name: ALLOW_AD_HOC_KIALI_NAMESPACE
+                        value: 'false'
+                      - name: ALLOW_AD_HOC_KIALI_IMAGE
+                        value: 'false'
+                      - name: PROFILE_TASKS_TASK_OUTPUT_LIMIT
+                        value: '100'
+                      - name: ANSIBLE_DEBUG_LOGS
+                        value: 'True'
+                      - name: ANSIBLE_VERBOSITY_KIALI_KIALI_IO
+                        value: '1'
+                      - name: ANSIBLE_CONFIG
+                        value: /etc/ansible/ansible.cfg
+                      - name: RELATED_IMAGE_kiali_default
+                        value: >-
+                          registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:376aab4049578fcfcccac6bdb0bfdce71111fbcfc092ab2510cc58ccb7ba265f
+                      - name: RELATED_IMAGE_kiali_v1_36
+                        value: >-
+                          registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:376aab4049578fcfcccac6bdb0bfdce71111fbcfc092ab2510cc58ccb7ba265f
+                      - name: RELATED_IMAGE_kiali_v1_24
+                        value: >-
+                          registry.redhat.io/openshift-service-mesh/kiali-rhel8@sha256:f85ca80b5a0063faf100e7a3fc65109c35f3e74a61aa1fd21d41f72148b8c1a4
+                      - name: RELATED_IMAGE_kiali_v1_12
+                        value: >-
+                          registry.redhat.io/openshift-service-mesh/kiali-rhel7@sha256:727e4b4174407906d185b09332e6d30e355cbb28053e97b00d10db390ba6b0f5
+                    securityContext:
+                      allowPrivilegeEscalation: false
+                      privileged: false
+                      runAsNonRoot: true
+                    ports:
+                      - containerPort: 8080
+                        name: http-metrics
+                        protocol: TCP
+                    imagePullPolicy: IfNotPresent
+                    volumeMounts:
+                      - mountPath: /tmp/ansible-operator/runner
+                        name: runner
+                    image: >-
+                      registry.redhat.io/openshift-service-mesh/kiali-rhel8-operator@sha256:5fe82607b0f607d0c4c5fd73b73f39c72b9f58aaf1fe2e54be862d047b217e05
+                    args:
+                      - '--zap-log-level=info'
+                      - '--leader-election-id=kiali-operator'
+                serviceAccountName: kiali-operator
+                volumes:
+                  - emptyDir: {}
+                    name: runner
+    strategy: deployment
+  maintainers:
+    - email: kiali-dev@googlegroups.com
+      name: Kiali Developers Google Group
+  description: >-
+    ## About the managed application
+
+
+    A Microservice Architecture breaks up the monolith into many smaller pieces
+
+    that are composed together. Patterns to secure the communication between
+
+    services like fault tolerance (via timeout, retry, circuit breaking, etc.)
+
+    have come up as well as distributed tracing to be able to see where calls
+
+    are going.
+
+
+    A service mesh can now provide these services on a platform level and frees
+
+    the application writers from those tasks. Routing decisions are done at the
+
+    mesh level.
+
+
+    Kiali works with OpenShift Service Mesh to visualize the service
+
+    mesh topology, to provide visibility into features like circuit breakers,
+
+    request rates and more. It offers insights about the mesh components at
+
+    different levels, from abstract Applications to Services and Workloads.
+
+
+    See [https://www.kiali.io](https://www.kiali.io) to read more.
+
+
+    ### Accessing the UI
+
+
+    By default, the Kiali operator exposes the Kiali UI as an OpenShift Route.
+
+
+    The default root context path is '/' though you can change
+
+    this by configuring the 'web_root' setting in the Kiali CR.
+
+
+    ## About this Operator
+
+
+    ### Kiali Custom Resource Configuration Settings
+
+
+    For quick descriptions of all the settings you can configure in the Kiali
+
+    Custom Resource (CR), see the file
+
+    [kiali_cr.yaml](https://github.com/kiali/kiali-operator/blob/v1.36/deploy/kiali/kiali_cr.yaml)
+
+
+    ## Prerequisites for enabling this Operator
+
+
+    Kiali is a companion tool for OpenShift Service Mesh. So before you install
+    Kiali, you must have
+
+    already installed Service Mesh.
+  replaces: kiali-operator.v1.36.6
+  selector:
+    matchLabels:
+      name: kiali-operator
+  labels:
+    name: kiali-operator
+status:
+  conditions:
+    - lastTransitionTime: '2022-01-13T17:43:52Z'
+      lastUpdateTime: '2022-01-13T17:43:52Z'
+      message: requirements not yet checked
+      phase: Pending
+      reason: RequirementsUnknown
+    - lastTransitionTime: '2022-01-13T17:43:52Z'
+      lastUpdateTime: '2022-01-13T17:43:52Z'
+      message: 'all requirements found, attempting install'
+      phase: InstallReady
+      reason: AllRequirementsMet
+    - lastTransitionTime: '2022-01-13T17:43:55Z'
+      lastUpdateTime: '2022-01-13T17:43:55Z'
+      message: waiting for install components to report healthy
+      phase: Installing
+      reason: InstallSucceeded
+    - lastTransitionTime: '2022-01-13T17:43:55Z'
+      lastUpdateTime: '2022-01-13T17:43:56Z'
+      message: >-
+        installing: waiting for deployment kiali-operator to become ready:
+        deployment "kiali-operator" waiting for 1 outdated replica(s) to be
+        terminated
+      phase: Installing
+      reason: InstallWaiting
+    - lastTransitionTime: '2022-01-13T17:47:31Z'
+      lastUpdateTime: '2022-01-13T17:47:31Z'
+      message: install strategy completed with no errors
+      phase: Succeeded
+      reason: InstallSucceeded
+  lastTransitionTime: '2022-01-13T17:47:31Z'
+  lastUpdateTime: '2022-01-13T17:47:31Z'
+  message: install strategy completed with no errors
+  phase: Succeeded
+  reason: InstallSucceeded
+  requirementStatus:
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: kialis.kiali.io
+      status: Present
+      uuid: 9b26beb7-d99b-4c3f-9383-f14012d4c6b5
+      version: v1
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      message: CRD is present and Established condition is true
+      name: monitoringdashboards.monitoring.kiali.io
+      status: Present
+      uuid: 9794b006-6958-4316-b767-768aeadff88b
+      version: v1
+    - dependents:
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["configmaps","endpoints","pods","serviceaccounts","services","services/finalizers"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","patch"],"apiGroups":[""],"resources":["namespaces"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","list","watch"],"apiGroups":[""],"resources":["secrets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["delete","get","list","patch","update","watch"],"apiGroups":[""],"resources":["secrets"],"resourceNames":["kiali-signing-key"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["apps"],"resources":["deployments","replicasets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["autoscaling"],"resources":["horizontalpodautoscalers"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","get"],"apiGroups":["monitoring.coreos.com"],"resources":["servicemonitors"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["update"],"apiGroups":["apps"],"resources":["deployments/finalizers"],"resourceNames":["kiali-operator"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["kiali.io"],"resources":["*"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["rbac.authorization.k8s.io"],"resources":["clusterrolebindings","clusterroles","rolebindings","roles"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch"],"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["route.openshift.io"],"resources":["routes"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["oauth.openshift.io"],"resources":["oauthclients"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["list","watch"],"apiGroups":["config.openshift.io"],"resources":["clusteroperators"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get"],"apiGroups":["config.openshift.io"],"resources":["clusteroperators"],"resourceNames":["kube-apiserver"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["console.openshift.io"],"resources":["consolelinks"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","delete","get","list","patch","update","watch"],"apiGroups":["monitoring.kiali.io"],"resources":["monitoringdashboards"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch"],"apiGroups":[""],"resources":["configmaps","endpoints","pods/log","pods/proxy"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","patch"],"apiGroups":[""],"resources":["namespaces","pods","replicationcontrollers","services"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create","post"],"apiGroups":[""],"resources":["pods/portforward"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","patch"],"apiGroups":["extensions","apps"],"resources":["daemonsets","deployments","replicasets","statefulsets"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","patch"],"apiGroups":["batch"],"resources":["cronjobs","jobs"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","create","delete","patch"],"apiGroups":["config.istio.io","networking.istio.io","authentication.istio.io","rbac.istio.io","security.istio.io"],"resources":["*"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","create","delete","patch"],"apiGroups":["authentication.maistra.io"],"resources":["servicemeshpolicies"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","create","delete","patch"],"apiGroups":["rbac.maistra.io"],"resources":["servicemeshrbacconfigs"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","patch"],"apiGroups":["apps.openshift.io"],"resources":["deploymentconfigs"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get"],"apiGroups":["project.openshift.io"],"resources":["projects"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get"],"apiGroups":["route.openshift.io"],"resources":["routes"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list"],"apiGroups":["monitoring.kiali.io"],"resources":["monitoringdashboards"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["get","list","watch","create","delete","patch"],"apiGroups":["iter8.tools"],"resources":["experiments"]}
+          status: Satisfied
+          version: v1
+        - group: rbac.authorization.k8s.io
+          kind: PolicyRule
+          message: >-
+            cluster
+            rule:{"verbs":["create"],"apiGroups":["authentication.k8s.io"],"resources":["tokenreviews"]}
+          status: Satisfied
+          version: v1
+      group: ''
+      kind: ServiceAccount
+      message: ''
+      name: kiali-operator
+      status: Present
+      version: v1
